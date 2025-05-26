@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>影音作品集</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F5F5F5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url('https://www.purdue.edu/innovativelearning/wp-content/uploads/2022/05/banner-video-production.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .project-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 80%;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-item {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      background-color: #F5F5F5; /* 原本的背景色 */
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.03);
+    }
+
+    .project-left {
+      flex: 1;
+      text-align: center;
+    }
+
+    .project-left a img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: opacity 0.3s;
+    }
+
+    .project-left a:hover img {
+      opacity: 0.8;
+    }
+
+    .project-right {
+      flex: 2;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #1E1E1E;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 16px;
+      list-style-type: square;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">影音作品展示</div>
+
+  <section class="project-detail">
+    <div class="project-container">
+      <!-- 第 1 個作品 -->
+      <div class="project-item">
+        <div class="project-left">
+          <a href="https://www.youtube.com/watch?v=JzhpT8PoJ0E" target="_blank">
+            <img src="data:image/jpeg;base64,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" alt="作品名稱 1">
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>【我的芒果會講話】紀錄片</h2>
+          <p>介紹屏東水之武農場的其中一個品種「夏雪芒果」，當初是如何被廣泛種植、種植的困難點、行銷的方式......等等。透過實際跟著農場主人-楊敏志先生走訪颱風天過後的農場，處處都可以看出楊敏志先生對於農場的感情及用心。在行銷方面，訪問了內埔DOC執行長/黎明村村長-黃永全先生，了解到內埔DOC的執行過程及方法。</p>
+          <ul>
+            <li>拍攝工具：IPONE 15 Pro 剪輯工具：CapCut</li>
+            <li>特色：與在地小農合作</li>
+            <li>製作時間：2024/07 - 2024/08</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第 2 個作品 -->
+      <div class="project-item">
+        <div class="project-left">
+          <a href="https://www.youtube.com/watch?v=25FdAQR3G_U" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsCZke4nUIAc1ngmME7Kwah5ckirMMfR08HA&s" alt="作品名稱 2">
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>【滾出我的人生】微電影</h2>
+          <p>在華人教育裡，我們常常被教育「忍一時風平浪靜，退一步海闊天空」的道理，卻沒人想過，如果真的一忍再忍，忍不下去了會發生甚麼事呢......</p>
+          <ul>
+            <li>拍攝工具：SONY PXW-Z200 剪輯軟體：DaVinci Resolve 18、Final cut pro 
+</li>
+            <li>特色：故事情節新穎</li>
+            <li>製作時間：2023/05 - 2023/06</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

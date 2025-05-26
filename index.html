@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Portfolio</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <style>
+    /* 全局樣式 */
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* 動畫樣式 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 導航列 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #3F3D56;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .hamburger-menu {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger-menu .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 50px;
+      background-color: #3F3D56;
+      padding: 10px 0;
+      list-style: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links.show {
+      display: block;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #5c5a75;
+    }
+
+    /* 主內容避免遮擋 */
+    .content {
+      padding-top: 80px;
+    }
+
+    /* Hero區塊 */
+    .hero {
+      background-color: #ffffff;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    /* Section區塊 */
+    section {
+      padding: 60px 20px;
+      background-color: #fff;
+      margin-bottom: 20px;
+    }
+
+    #projects {
+      background-color: #F0F0F5;
+    }
+
+    #contact {
+      background-color: #e3e9f7;
+    }
+
+    /* Profile Section */
+    .profile-section {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease
+    }
+
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+      justify-content: left ;
+      text-align: left
+    }
+    
+
+    .profile-photo {
+      flex: 1;
+      text-align: center;
+    }
+
+    .profile-photo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-details {
+      flex: 2;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .profile-details h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #3F3D56;
+    }
+
+    .profile-details p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    /* 作品集區塊*/
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .project-section {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    
+
+    .project-section:hover {
+      background-color: #f6f6f6;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-section h3 {
+      color: #3F3D56;
+      margin-bottom: 10px;
+    }
+    
+    /* 簡歷 Resume 區塊 */
+    .resume-container {
+      text-align: left ; /* 讓文字靠左對齊 */
+      font-size: 16px;
+      padding: 20px; /* 讓內容更舒適，不會太擠 */
+        text-decoration: none;
+        color: #333;
+        display: block;
+        margin: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+    .resume-container p {
+      text-align: left !important; /* 確保所有段落靠左 */
+    }
+
+    /* 聯絡方式 */
+    .contact-info {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      margin: 10px 0;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #5c5a75;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #3F3D56;
+      color: #fff;
+    }
+    
+    
+    .profile-section,
+    .resume-section {
+      background-color: #F0F0F5; /* 確保背景色一致 */
+      padding: 60px 20px; /* 增加內邊距，讓內容更舒適 */
+      max-width: 900px; /* 統一寬度，與作品集區塊一致 */
+      margin: 0 auto 40px; /* 增加底部間距，讓區塊有更好的視覺流動 */
+      line-height: 1.8; /* 增加行距，提高可讀性 */
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#resume">簡歷</a></li>
+        <li><a href="#projects">作品集</a></li>
+        <li><a href="#contact">聯絡方式</a></li>
+      
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <section id="profile" class="profile-section fade-in">
+      <div class="profile-container">
+        <div class="profile-photo">
+          <img src="https://youth.chtf.org.tw/sites/default/files/styles/square_150/public/member/c3fc2ce0-102e-4cbb-88a3-bf239e66955f_0.jpg?itok=3uOUs1xV" alt="我的照片">
+        </div>
+        <div class="profile-details">
+          <h2>鍾念潔</h2>
+          <p><strong>學歷：</strong>國立台灣科技大學 企業管理系 大三</p>
+          <p><strong>座右銘：</strong>“走得多慢都無所謂，只要你不停下腳步。”</p>
+          <p><strong>專長：</strong>行銷策略、資料分析、簡報製作</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume-section fade-in">
+      <div class="resume-container">
+        <h2>簡歷 📄</h2>
+        <p>
+          從高中就讀於新竹高商國際貿易科起，就開始了我接觸商業領域的路程。高中三年扎實的課程讓我從會計、計算機概論、商業概論、信用狀、貿易流程.....等等的國貿及商業的基本知識認識到商業領域的基礎，並透過各式實作作業，讓我對國際貿易的實務操作與客戶溝通產生濃厚興趣。
+        </p>
+        <p>
+          大學階段我選擇企業管理作為主修，雖然課程不全然對應國貿，但我持續投入各種專案與實務經驗，強化自己在溝通表達、團隊合作與邏輯思考方面的能力，並學習如何統整資訊、分析市場與掌握消費者行為，為將來能與客戶釐清需求、進行報價與提案建立基礎。
+        </p>
+        <p>
+          我具備積極學習與負責的特質，不怕與海外客戶交流，期望未來能參與實際的訂單流程，協助客戶從無到有完成出貨，並持續經營長期合作關係。同時我也對各國市場的文化與商業習慣保持好奇與開放的態度，樂於學習跨國文化，成為促進國際合作的橋樑。
+        </p>
+      </div>
+    </section>
+
+
+    <section id="projects" class="fade-in">
+      <h2>作品集 🖼️</h2>
+      <div class="projects-container">
+        <a href="programming.html" class="project-section">
+          <h3>程式作品</h3>
+          <p>程式開發相關專案與成就</p>
+        </a>
+        <a href="media.html" class="project-section">
+          <h3>影音作品</h3>
+          <p>包含拍攝、剪輯製作等作品</p>
+        </a>
+        <a href="experience.html" class="project-section">
+          <h3>其他經驗</h3>
+          <p>包含參與的其他社團活動或志工經驗。</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+      <h2>聯絡方式 📞</h2>
+      <div class="contact-info">
+        <p><a href="mailto:make5855012922@gmail.com"><i class="fas fa-envelope"></i> Email: make5855012922@gmail.com</a></p>
+        <p><a href="#"><i class="fas fa-phone"></i> 手機: 0903017956</a></p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+</body>
+
+</html>

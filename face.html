@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>面部偵測 | 鍾念潔 Jessica 的作品集</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      background-color: #fffefc;
+      color: #333;
+    }
+    header {
+      background-color: #ffe6e6;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      color: #c94e4e;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0 0 16px;
+    }
+    ul {
+      font-size: 18px;
+      padding-left: 20px;
+    }
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .image-preview {
+      text-align: center;
+    }
+    .image-preview img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>面部偵測（Face Mesh）</h1>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>📘 專案介紹</h2>
+    <p>本作品運用 MediaPipe 的 FaceMesh 模組與 OpenCV 實作即時面部偵測。系統能夠準確偵測並繪製 468 個臉部特徵點，應用範圍廣泛，包括虛擬濾鏡、人臉辨識、情緒分析等。</p>
+  </section>
+
+  <section>
+    <h2>🛠 使用技術</h2>
+    <ul>
+      <li>Python</li>
+      <li>OpenCV</li>
+      <li>MediaPipe Face Mesh</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💻 實作程式碼</h2>
+    <div class="code-block">
+<pre><code>import cv2
+import mediapipe as mp
+
+mpd = mp.solutions.drawing_utils
+mpfm = mp.solutions.face_mesh
+dspec = mpd.DrawingSpec((255, 255, 0), 1, 1)
+cspec = mpd.DrawingSpec((128, 128, 128), 1, 1)
+cpoint = mpfm.FACEMESH_TESSELATION
+fm = mpfm.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+
+cap = cv2.VideoCapture(0)
+while cap.isOpened():
+    success, image = cap.read()
+    imgrgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    results = fm.process(imgrgb)
+    if results.multi_face_landmarks:
+        for f_landmarks in results.multi_face_landmarks:
+            mpd.draw_landmarks(image, landmark_list=f_landmarks,
+                connections=cpoint, landmark_drawing_spec=dspec,
+                connection_drawing_spec=cspec)
+    cv2.imshow('B11108033_faceLM1', image)
+    if cv2.waitKey(5) & 0xFF == 27:
+        break
+cap.release()
+cv2.destroyAllWindows()</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>📷 成果展示</h2>
+    <div class="image-preview">
+      <img src="./static/face-1.png" alt="面部偵測成果畫面">
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

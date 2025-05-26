@@ -1,0 +1,228 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Existing styles */
+
+nav, .button {
+  background-color: #D2B48C; /* 奶茶色 */
+  color: white; /* 文字顏色設為白色 */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D2B48C; /* 奶茶色 */
+  padding: 20px; /* Increased padding for thicker top bar */
+  position: relative;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+  display: none; /* Hide in larger screens */
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 5px; /* Increased height for thicker bars */
+  margin: 5px auto;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.button {
+  background-color: #F5DEB3; /* 淺奶茶色 */
+  border: none;
+
+section {
+  margin-top: 60px;
+  padding: 20px 0;
+  border-top: 1px dashed #ccc; /* Add dashed border */
+}
+
+#about,
+#projects,
+#contact {
+  margin-top: 80px; /* Adjust top margin to move sections down */
+}
+
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d7b295;
+  transform: translateY(-3px);
+}
+
+.nav-links a, .contact-info a, .sidebar a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover, .contact-info a:hover, .sidebar a:hover {
+  color: #d7b295;
+  transform: scale(1.1);
+}
+
+section h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links {
+  display: none; /* Hidden by default */
+  position: fixed; /* Use fixed positioning to avoid overlapping other content */
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  width: 200px; /* Adjust width as needed */
+  height: 100%; /* Full height to cover from top to bottom */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 200; /* Ensure it's above other content */
+}
+
+.nav-links.active {
+  display: block;
+}
+
+.nav-links li {
+  list-style: none;
+  margin: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Show on smaller screens */
+  }
+  .nav-links {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+.button {
+  background-color: #F5DEB3; /* 淺奶茶色 */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-info a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+#profile {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+.profile-content p {
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Added profile section */
+<section id="profile">
+  <h2>個人資料</h2>
+  <div class="profile-content">
+    <img src="https://via.placeholder.com/150" alt="個人照片" class="profile-photo">
+    <p>我是 [您的名字]，目前是一名具有經驗技術背景的 Web 開發者。我熱衷於創造創新且具視覺吸引力的設計。在這裡，更詳細地描述您自己和您的專業經歷。</p>
+  </div>
+</section>
+
+.sidebar {
+  margin-right: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-photo {
+  margin-bottom: 20px;
+}

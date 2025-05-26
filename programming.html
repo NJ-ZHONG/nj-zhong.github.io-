@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>程式作品</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F5F5F5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url('https://eu-images.contentstack.com/v3/assets/blt07f68461ccd75245/blt09a2ac83e51a0e06/661ce198092eb8747525079e/programming_20evolution.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .project-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      max-width: 80%;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-left {
+      flex: 1;
+      text-align: center;
+    }
+
+    .project-left img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .project-links {
+      margin-top: 20px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      background-color: #333;
+      padding: 12px 18px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      margin: 5px;
+    }
+
+    .project-links a:hover {
+      background-color: #555;
+    }
+
+    .project-right {
+      flex: 2;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #1E1E1E;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 16px;
+      list-style-type: square;
+    }
+  </style>
+</head>
+
+    <!DOCTYPE html>
+    <html lang="zh-TW">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>程式作品展示</title>
+      <style>
+        .project-content {
+          display: none;
+          transition: all 0.3s ease-in-out;
+        }
+      </style>
+      
+    <body>
+      <div class="hero">程式作品展示</div>
+
+      <section class="project-detail">
+        <div class="project-container">
+
+          <!-- 第 1 個作品 -->
+          <div class="project-item">
+            <div class="project-left">
+              <img src="https://www.cathayholdings.com/holdings/-/media/2c67f328a6c44f9d92835b4bb44c6bc3.jpg?sc_lang=zh-tw&v=1" alt="作品名稱 1">
+              <div class="project-links">
+                <a href="CarbonSaver.html" target="_blank">🔗作品連結 </a>
+              </div>
+            </div>
+            <div class="project-right">
+              <h2 class="project-title">CarbonSaver 碳購購</h2>
+              <p>CarbonSaver 碳購購 是一款結合影像辨識與永續理念的 App，透過手機掃描商品外觀，即可辨識並顯示該商品的碳足跡資訊。使用者可在購物前快速了解產品對環境的影響，鼓勵更有意識的消費選擇，實踐綠色生活。</p>
+              <ul>
+                <li>技術:使用 Teachable Machine建立商品分類模型、即時查詢功能、碳足跡資料整合</li>  
+                <li>特色:即拍即查、綠色引導購物、直覺式互動介面、擴充性高</li>
+              </ul>
+            </div>
+
+            <div class="project-content">
+              <img src="your-image-url-1.jpg" alt="作品名稱 1">
+              <pre><code>const exampleFunction = () => {
+      console.log("Hello, world!");
+    };</code></pre>
+            </div>
+          </div>
+
+          <!-- 第 2 個作品 -->
+          <div class="project-item">
+            <div class="project-left">
+              <img src="https://www.mdpi.com/sensors/sensors-21-03204/article_deploy/html/images/sensors-21-03204-g005.png" alt="作品名稱 2">
+              <div class="project-links">
+                <a href="gesture.html" target="_blank">🔗 作品連結</a>
+              </div>
+            </div>
+            <div class="project-right">
+              <h2 class="project-title">手勢辨識</h2>
+              <p>運用攝影機即時擷取影像，結合 Mediapipe 套件進行手部關鍵點偵測與手勢追蹤。可應用於簡易人機互動控制，例如滑動頁面、播放控制等，展現 AI 與電腦視覺在生活中的實用性。</p>
+              <ul>
+                <li>技術：Mediapipe Hands 模組、即時處理流程設計、Python 實作環境</li>
+                <li>特色：低延遲即時辨識、可擴展應用、高精度骨架繪製</li>
+              </ul>
+            </div>
+
+            <div class="project-content">
+              <img src="your-image-url-2.jpg" alt="作品名稱 2">
+              <pre><code>def example_function():
+        print("Hello, world!")</code></pre>
+            </div>
+          </div>
+
+          <!-- 第 3 個作品 -->
+          <div class="project-item">
+            <div class="project-left">
+              <img src="https://research.sinica.edu.tw/wp-content/uploads/2024/08/lun-wei-ku-01.jpg" alt="作品名稱 3">
+              <div class="project-links">
+                <a href="llm.html" target="_blank">🔗 作品連結</a>
+              </div>
+            </div>
+            <div class="project-right">
+              <h2 class="project-title">大型語言的發展脈絡</h2>
+              <p>以 Python 搭配 matplotlib 繪製大型語言模型（LLM）自 2017 至 2027 年的重要里程碑時間軸。透過圖表形式呈現技術演進，並可自由客製事件內容與樣式，是一款兼具資料整理與視覺化美感的技術發展速覽工具。</p>
+              <ul>
+                <li>技術：Python、Matplotlib、資料視覺化設計</li>
+                <li>特色：條列主要 LLM 發展事件、視覺化設計簡潔易懂、事件時間與內容可自由調整、 強化對 AI 發展脈絡的理解</li>
+              </ul>
+            </div>
+
+            <div class="project-content">
+              <img src="your-image-url-3.jpg" alt="作品名稱 3">
+              <pre><code>function syncData() {
+      console.log("同步數據...");
+    }</code></pre>
+            </div>
+          </div>
+
+          <!-- 第 4 個作品 -->
+          <div class="project-item">
+            <div class="project-left">
+              <img src="https://www.cyient.com/hubfs/Banner%20Image.jpg" alt="作品名稱 4">
+              <div class="project-links">
+                <a href="face.html" target="_blank">🔗 作品連結</a>
+              </div>
+            </div>
+            <div class="project-right">
+              <h2 class="project-title">面部偵測</h2>
+              <p>運用 Google MediaPipe 的 FaceMesh 模組，實作即時面部偵測與特徵點標記功能。可於鏡頭畫面中即時擷取人臉，並精準繪製出臉部輪廓與關鍵節點，為臉部辨識、虛擬濾鏡、AR 應用等技術奠定基礎。</p>
+              <ul>
+                <li>技術：Python、OpenCV、MediaPipe FaceMesh</li>
+                <li>特色：即時臉部偵測與標記超過 468 個關鍵特徵點、使用者無需資料集即可立即運行、可應用於虛擬化妝、面部追蹤、臉部動畫等領域、支援多張臉同時辨識</li>
+              </ul>
+            </div>
+
+            <div class="project-content">
+              <img src="your-image-url-4.jpg" alt="作品名稱 4">
+              <pre><code>func optimize() {
+      fmt.Println("優化效能...")
+    }</code></pre>
+            </div>
+          </div>
+
+          <!-- 第 5 個作品 -->
+          <div class="project-item">
+            <div class="project-left">
+              <img src="https://miro.medium.com/v2/resize:fit:1001/1*Fo-nqYmfuI-26TfJtYVhfw.jpeg" alt="作品名稱 5">
+              <div class="project-links">
+                <a href="neo4j.html" target="_blank">🔗 作品連結</a>
+              </div>
+            </div>
+            <div class="project-right">
+              <h2 class="project-title"> AI 問答系統</h2>
+              <p>整合大型語言模型（LLM）、知識圖譜與向量資料庫的智慧問答系統，使用者可以以自然語言提問，系統會透過 Agent 自動選擇最佳解法：查詢圖資料或語意相近內容，並生成回答。此架構展現了 AI 在知識管理與資料查詢上的應用潛力。</p>
+              <ul>
+                <li>技術：Google Generative AI (Gemini Pro)、LangChain、 Neo4j</li>
+                <li>特色：支援多模組決策、可擴充性強、即時互動、資料驅動</li>
+              </ul>
+            </div>
+
+            <div class="project-content">
+              <img src="your-image-url-5.jpg" alt="作品名稱 5">
+              <pre><code>import tensorflow as tf
+
+    def train_model():
+        print("訓練 AI 模型...")</code></pre>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <script>
+        document.querySelectorAll('.project-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.closest('.project-item').querySelector('.project-content');
+            if (content) {
+              content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            }
+          });
+        });
+      </script>
+    </body>
+    </html>
+  
+  
+<style>
+  .project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  
+
+  .project-item {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .project-item:hover {
+    transform: scale(1.03);
+  }
+
+  .project-left {
+    flex: 1;
+    text-align: center;
+  }
+
+  .project-left img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .project-links {
+    margin-top: 15px;
+  }
+
+  .project-links a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    padding: 12px 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+
+  .project-links a:hover {
+    background-color: #555;
+  }
+
+  .project-right {
+    flex: 2;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #1E1E1E;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  ul {
+    padding-left: 20px;
+    font-size: 16px;
+    list-style-type: square;
+  }
+</style>

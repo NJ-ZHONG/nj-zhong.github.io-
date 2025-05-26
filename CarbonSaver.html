@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carbon Saver 碳購購</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f0fdf4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px 10px;
+      background-color: #a7f3d0;
+      color: #065f46;
+      font-size: 1.8em;
+      font-weight: bold;
+      border-bottom: 3px solid #34d399;
+    }
+
+    .section {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      animation: slideUp 0.5s ease;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #059669;
+    }
+
+    video, canvas {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      background-color: #6ee7b7;
+      border: none;
+      border-radius: 10px;
+      color: #065f46;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #34d399;
+    }
+
+    #result, #points {
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 2px solid #d1fae5;
+      background-color: #ecfdf5;
+      position: sticky;
+      bottom: 0;
+      z-index: 999;
+    }
+
+    .nav button {
+      background: none;
+      border: none;
+      font-size: 0.9em;
+      color: #047857;
+    }
+
+    .nav button.active {
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1em;
+      color: #065f46;
+      cursor: pointer;
+      user-select: none;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .info-card:active {
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.7);
+      transform: translateY(1px);
+    }
+
+    .task-list, .more-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .task-list li, .more-list li {
+      margin: 12px 0;
+      padding: 18px 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .task-list li {
+      background: #d1fae5;
+    }
+
+    .task-list li:hover,
+    .task-list li:focus {
+      box-shadow: 0 8px 15px rgba(22, 163, 74, 0.5);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    .task-list li:active {
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .more-list li {
+      background: #cffafe;
+    }
+
+    .more-list li:hover,
+    .more-list li:focus {
+      box-shadow: 0 8px 15px rgba(6, 182, 212, 0.6);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    .more-list li:active {
+      box-shadow: 0 4px 10px rgba(6, 182, 212, 0.8);
+      transform: translateY(-2px);
+    }
+    .scanner-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>🌿 Carbon Saver 碳購購</header>
+
+  <div class="content" id="page-my">
+    <div class="section">
+      <h2>👤 我的帳號</h2>
+      <div class="info-card">用戶名稱：Jessica123</div>
+      <div class="info-card">個人資訊</div>
+      <div class="info-card">我的點數 & 累積減碳量</div>
+      <div class="info-card">設定</div>
+      <div class="info-card">登出按鈕</div>
+      <div class="info-card">語言</div>
+    </div>
+  </div>
+
+  <div class="content" id="page-task" style="display:none">
+    <div class="section">
+      <h2>🎯 任務活動</h2>
+      <ul class="task-list">
+        <li tabindex="0">5月任務：購買低碳蔬菜 3 次，+10 點</li>
+        <li tabindex="0">參加市集打卡活動，+5 點</li>
+        <li tabindex="0">使用環保袋購物 5 次，+8 點</li>
+        <li tabindex="0">完成碳足跡掃描 3 次，+12 點</li>
+        <li tabindex="0">邀請朋友加入 APP，+15 點</li>
+        <li tabindex="0">分享減碳小知識至社群，+7 點</li>
+        <li tabindex="0">參加線上環保講座，+10 點</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content" id="page-scan" style="display:none">
+    <div class="section">
+      <h2>📸 商品辨識</h2>
+      <div class="scanner-section">
+        <div id="webcam-container"></div>
+        <button onclick="init()">開始辨識</button>
+      </div>
+      <div id="label-container" style="margin-top: 16px;">請對準商品並點擊辨識</div>
+    </div>
+    <div class="section">
+      <h2>🎁 點數資訊</h2>
+      <p>目前點數：<span id="points">0</span> 點</p>
+      <button onclick="redeemPoints()">點數兌換</button>
+    </div>
+  </div>
+
+
+  <div class="content" id="page-map" style="display:none">
+    <div class="section">
+      <h2>🗺️ 附近合作店家</h2>
+      <iframe
+        src="https://www.google.com/maps?q=全聯+家樂福+合作商店&output=embed"
+        width="100%" height="300" frameborder="0" style="border-radius: 10px;" allowfullscreen>
+      </iframe>
+      <p style="font-size: 0.9em; color: #666; margin-top: 10px;">📍 提示：地圖將根據你的定位顯示附近的合作商店。</p>
+    </div>
+  </div>
+
+  <div class="content" id="page-more" style="display:none">
+    <div class="section">
+      <h2>📚 更多功能</h2>
+      <ul class="more-list">
+        <li>關於我們</li>
+        <li>使用指南</li>
+        <li>客服中心</li>
+        <li>版本資訊</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button onclick="showPage('page-my', this)" class="active">我的</button>
+    <button onclick="showPage('page-task', this)">任務</button>
+    <button onclick="showPage('page-scan', this)">掃描</button>
+    <button onclick="showPage('page-map', this)">店家</button>
+    <button onclick="showPage('page-more', this)">更多</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script>
+    const URL = "https://teachablemachine.withgoogle.com/models/75MfkFoiL/";
+    let model, webcam, labelContainer, maxPredictions;
+
+    async function init() {
+      const modelURL = URL + "model.json";
+      const metadataURL = URL + "metadata.json";
+
+      model = await tmImage.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+
+      const flip = true;
+      webcam = new tmImage.Webcam(640, 480, flip);
+      await webcam.setup();
+      await webcam.play();
+      window.requestAnimationFrame(loop);
+
+      document.getElementById("webcam-container").appendChild(webcam.canvas);
+      labelContainer = document.getElementById("label-container");
+    }
+
+    async function loop() {
+      webcam.update();
+      await predict();
+      window.requestAnimationFrame(loop);
+    }
+
+    
+    async function predict() {
+      const prediction = await model.predict(webcam.canvas);
+
+      // 找到機率最高的分類
+      let topPrediction = prediction.reduce((max, p) => (p.probability > max.probability ? p : max));
+
+      // 找到標籤容器
+      const labelContainer = document.getElementById("label-container");
+
+      // 如果預測的信心值大於 0.9，顯示自定義訊息
+      if (topPrediction.probability > 0.9) {
+        let message = "";
+
+        if (topPrediction.className === "塑膠水壺") {
+          message = "✅ 辨識成功：塑膠水壺，碳足跡 0.6kg/100g<br>建議選擇不鏽鋼水壺，每年平均碳排放可被攤低喔!!!";
+        } else if (topPrediction.className === "雨傘") {
+          message = "✅ 辨識成功：雨傘，碳足跡 21kg/100g<br>建議選擇再生聚酯纖維材質的雨傘，使碳足跡達到最低喔!!!";
+        } else if (topPrediction.className === "iPhone11") {
+          message = "✅ 辨識成功：iPhone11，碳足跡 86kg/100g";
+        } else {
+          message = `✅ 辨識成功：${topPrediction.className}，但尚無碳足跡資料`;
+        }
+
+        labelContainer.innerHTML = `<div style="font-size: 16px; color: green;">${message}</div>`;
+      } else {
+        // 信心值不夠，顯示所有類別與其機率
+        labelContainer.innerHTML = "";
+        prediction.forEach(p => {
+          labelContainer.innerHTML += `<div>${p.className}: ${(p.probability * 100).toFixed(2)}%</div>`;
+        });
+      }
+    }
+
+
+    function showPage(pageId, button) {
+      document.querySelectorAll('.content').forEach(page => {
+        page.style.display = 'none';
+      });
+      document.getElementById(pageId).style.display = 'block';
+
+      document.querySelectorAll('.nav button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      button.classList.add('active');
+    }
+
+    function redeemPoints() {
+      alert("點數兌換功能尚未開放！");
+    }
+  </script>
+</body>
+</html>

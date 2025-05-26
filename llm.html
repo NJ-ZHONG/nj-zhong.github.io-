@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>LLM | 鍾念潔 Jessica 的作品集</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      background-color: #fffefc;
+      color: #333;
+    }
+    header {
+      background-color: #eae6f6;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      color: #8d7dbd;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0 0 16px;
+    }
+    ul {
+      font-size: 18px;
+      padding-left: 20px;
+    }
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .image-preview {
+      text-align: center;
+    }
+    .image-preview img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LLM 年代表視覺化</h1>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>📘 專案介紹</h2>
+    <p>此專案以 Python 搭配 matplotlib 繪製大型語言模型（LLM）自 2017 至 2027 年的重要里程碑時間軸。透過圖表形式呈現技術演進，並可自由客製事件內容與樣式。</p>
+  </section>
+
+  <section>
+    <h2>🛠 使用技術</h2>
+    <ul>
+      <li>Python</li>
+      <li>matplotlib</li>
+      <li>中文標註處理（可選）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💻 實作程式碼</h2>
+    <div class="code-block">
+<pre><code>import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+def plot_llm_timeline():
+    years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027]
+    events = [
+        "Transformer Paper (Attention Is All You Need)",
+        "BERT / GPT-1 Models Introduced",
+        "GPT-2 / XLNet / Megatron-LM Released",
+        "GPT-3 (175B Parameters), T5 Model Released",
+        "Large Multilingual Models / Switch Transformer",
+        "ChatGPT Becomes Popular / Instruction Tuning Advances",
+        "Google Bard / Meta LLaMA / Baidu ERNIE Bot Competition",
+        "Industry-Specific Models (Finance, Healthcare, etc.)\nAdvancements in Retrieval-Augmented Generation",
+        "Security, Privacy, Explainability Become Key Issues\nGrowth of Both Large and Specialized Models",
+        "What's Next in 2026?",
+        "What's Next in 2027?",
+    ]
+    y_values = [1] * len(years)
+
+    plt.figure(figsize=(10, 6))
+    plt.scatter(years, y_values)
+
+    for i, year in enumerate(years):
+        plt.text(year, 1.02, f"({year}) {events[i]}", rotation=45, ha='left', va='bottom', fontsize=10)
+
+    plt.xlim(min(years) - 0.5, max(years) + 3)
+    plt.ylim(0.95, 1.2)
+    plt.title("The development of LLM (2017～2025)")
+    plt.xlabel("Year", fontsize=10)
+    plt.yticks([])
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == "__main__":
+    plot_llm_timeline()</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>📷 成果展示</h2>
+    <div class="image-preview">
+      <img src="./static/llm.png" alt="大型語言的發展歷程">
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

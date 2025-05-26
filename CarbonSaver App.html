@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>手勢辨識作品展示</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #3b82f6;
+    }
+    .section {
+      margin-top: 2rem;
+    }
+    .code {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      white-space: pre;
+    }
+    .info {
+      background-color: #f0f4ff;
+      padding: 1rem;
+      border-left: 5px solid #3b82f6;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✋ 手勢辨識專案展示</h1>
+
+    <div class="section info">
+      <h2>🔍 簡介</h2>
+      <p>本專案透過 OpenCV 與 MediaPipe 模組進行即時手勢辨識，能夠辨認多種手勢，如讚、搖滾、比中指等，並在畫面上顯示對應文字，若辨識到比中指則會自動模糊畫面。</p>
+    </div>
+
+    <div class="section info">
+      <h2>⚙️ 使用技術</h2>
+      <ul>
+        <li>Python</li>
+        <li>OpenCV：即時影像擷取與處理</li>
+        <li>MediaPipe Hands：手部節點偵測與追蹤</li>
+        <li>數學向量計算：角度計算用於判斷手指是否彎曲</li>
+      </ul>
+    </div>
+
+    <div class="section info">
+      <h2>🌟 專案特色</h2>
+      <ul>
+        <li>可辨識多種手勢，實用性高</li>
+        <li>若出現不雅手勢即時模糊畫面，增加人機互動趣味</li>
+        <li>具有潛力應用於智慧家庭、互動裝置或特教輔具</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💻 原始程式碼片段</h2>
+      <div class="code">
+import cv2
+import mediapipe as mp
+import math
+...
+# 全部原始碼太長建議用 GitHub 分享完整版
+# 可辨識 middle finger / good / ROCK! / ok 等手勢
+      </div>
+    </div>
+  </div>
+</body>
+</html>
